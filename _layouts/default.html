@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title == 'Home' %}{{ site.title }}{% else %}{{ page.title }} · {{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home"><span class="brand-mark">✦</span><span>{{ site.title }}</span></a>
+      <nav aria-label="Main navigation"><a href="{{ '/' | relative_url }}">Home</a><a href="{{ '/#ranking-heading' | relative_url }}">Countdown</a></nav>
+    </div>
+  </header>
+  <main id="main-content">{{ content }}</main>
+  <footer class="site-footer"><div><span class="brand-mark">✦</span> {{ site.title }}</div><p>Made for long days, warm nights, and repeat plays.</p></footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+title: "Songs of the Summer"
+description: "A curated countdown of the top 10 songs of the summer."
+url: "https://your-username.github.io"
+baseurl: ""
+lang: "en-US"
+markdown: kramdown
+permalink: pretty
+
+collections:
+  songs:
+    output: true
+    permalink: /songs/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "songs"
+    values:
+      layout: song
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - README.md

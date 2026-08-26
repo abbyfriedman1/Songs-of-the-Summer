@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<article class="song-page">
+  <header class="song-header">
+    <div class="song-art {% unless page.cover_image %}song-art-placeholder{% endunless %}">
+      {% if page.cover_image %}
+        <img src="{{ page.cover_image | relative_url }}" alt="{{ page.cover_alt }}">
+      {% else %}
+        <span>Single cover or<br>related image placeholder</span>
+      {% endif %}
+    </div>
+    <div>
+      <p class="song-rank">RANK {{ page.rank | prepend: "0" | slice: -2, 2 }}</p>
+      <h1 class="song-title">{{ page.title }}</h1>
+      <p class="performer">{{ page.performer }}</p>
+    </div>
+  </header>
+  <section class="review" aria-labelledby="review-heading">
+    <h2 id="review-heading">Your review</h2>
+    {{ content }}
+    <div class="rating" aria-label="{{ page.rating_label }}">
+      <span class="stars" aria-hidden="true">{% assign rating = page.rating | plus: 0 %}{% for i in (1..5) %}{% if i <= rating %}★{% else %}☆{% endif %}{% endfor %}</span>
+      <span class="rating-label">{{ page.rating_label }}</span>
+    </div>
+    <a class="back-link" href="{{ '/' | relative_url }}#ranking-heading">← Back to the countdown</a>
+  </section>
+</article>
